@@ -6,11 +6,24 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(
-  email: 'tatchi@lewagon.com',
-  name: 'tatchi',
-  address: 'SP',
-  cpf: '000000000-00',
-  user_name: 'supertatchi',
-  password: 'aaaaaa'
-  )
+require 'faker'
+puts "cleaning the database"
+User.destroy_all
+puts "database cleaned"
+puts "seeding database..."
+  40.times do
+    user = User.new(
+      name: Faker::TvShows::SouthPark.character,
+      user_name: Faker::Internet.username,
+      cpf: Faker::IDNumber.croatian_id,
+      address: Faker::Address.street_address,
+      email: Faker::Internet.email,
+      password: '123456',
+      is_professional: false,
+      is_available: true,
+      interests: ApplicationController::INTERESTS.sample(rand(1..6))
+    )
+    user.save!
+    puts "#{user.id} - #{user.name} created"
+  end
+puts "#{User.count} users created"
