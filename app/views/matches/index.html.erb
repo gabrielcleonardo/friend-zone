@@ -1,0 +1,17 @@
+<div class="container align-text-center">
+  <div class="cards">
+    <% @matches.each do |match| %>
+    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/640/420)" >
+      <div class="card-body">
+        <div class="user-info">
+          <p><%= User.find(match.user_2_id).name %></p>
+
+        </div>
+
+      </div>
+    </div>
+
+    <% end %>
+  </div>
+
+</div>
