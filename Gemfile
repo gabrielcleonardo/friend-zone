@@ -67,3 +67,7 @@ gem 'devise'
 # faker gem for seeding
 
 gem 'faker'
+
+# geocoding
+
+gem 'geocoder'
