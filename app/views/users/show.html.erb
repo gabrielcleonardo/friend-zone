@@ -1,0 +1,12 @@
+<div class="cards">
+    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/640/420)" >
+
+      <div class="card-body">
+        <%= @user.user_name %><br/>
+        <%= @user.email %><br/>
+        <%= @user.address %><br/>
+        <h4><%= @user.interests.join(", ") %></h4>
+        <a> <%= link_to "Match" %> > </a>
+      </div>
+    </div>
+</div>
