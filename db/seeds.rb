@@ -21,7 +21,7 @@ puts "seeding database..."
       password: '123456',
       is_professional: false,
       is_available: true,
-      interests: ApplicationController::INTERESTS.sample(rand(1..6))
+      interests: User::INTERESTS.sample(rand(1..6))
     )
     user.save!
     puts "#{user.id} - #{user.name} created"
