@@ -1,16 +1,15 @@
-<div class="container align-text-center">
-  <h1>My search</h1>
 
+<div class="container align-text-center">
   <div class="cards">
     <% @users.each do |user| %>
-
     <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/640/420)" >
-
       <div class="card-body">
-        <%= user.user_name %><br/>
-        <%= user.email %><br/>
-        <%= user.address %><br/>
-      <a> <%= link_to "View me", user_path(user.id)%> </a>
+        <div class="user-info">
+          <p><%= user.user_name %></p>
+        </div>
+        <div>
+          <a href="#"  class="btn btn-primary">View me!</a>
+        </div>
       </div>
     </div>
 
