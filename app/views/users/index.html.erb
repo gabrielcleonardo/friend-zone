@@ -1,6 +1,7 @@
-<div class="container">
+<div class="container align-text-center">
   <h1>My search</h1>
 
+<<<<<<< HEAD
 
   <div class="container">
     <div class="row"  >
@@ -15,6 +16,22 @@
       </div>
      <% end %>
     </div>
+=======
+  <div class="cards">
+    <% @users.each do |user| %>
+
+    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/640/420)" >
+
+      <div class="card-body">
+        <%= user.user_name %><br/>
+        <%= user.email %><br/>
+        <%= user.address %><br/>
+      <a href="#" class="btn btn-primary">View me!</a>
+      </div>
+    </div>
+
+    <% end %>
+>>>>>>> 132217604cd8734965b7ed761a798084fad79805
   </div>
 
 </div>

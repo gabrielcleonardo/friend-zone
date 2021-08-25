@@ -44,7 +44,7 @@
                 input_html: { autocomplete: "email" }%>
 
 
-    <%= f.input :interests, as: :check_boxes, collection:ApplicationController::INTERESTS, include_hidden: false %>
+    <%= f.input :interests, as: :check_boxes, collection:User::INTERESTS, include_hidden: false %>
 
 
   </div>
