@@ -1,0 +1,20 @@
+.cards {
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  .card {
+
+    border: solid 2px gainsboro;
+    background-size: cover;
+    background-position: center;
+    margin: 6px;
+  }
+  .card-body {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      min-height: 240px;
+      color: white;
+      padding: 12px;
+    }
+}
