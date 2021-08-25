@@ -1,12 +1,20 @@
-<div class="cards">
-    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/640/420)" >
+<div class="container">
 
-      <div class="card-body">
-        <%= @user.user_name %><br/>
-        <%= @user.email %><br/>
-        <%= @user.address %><br/>
-        <h4><%= @user.interests.join(", ") %></h4>
-        <a> <%= link_to "Match" %> > </a>
-      </div>
-    </div>
+  <div class="profile-img p-3 text-center">
+    <img src="https://picsum.photos/640/420" alt="">
+  </div>
+
+  <div class="profile-info my-3">
+    <h3>Name: <%= @user.user_name %></h3>
+    <h3>Email: <%= @user.email %></h3>
+    <span>Address: <%= @user.address %></span>
+  </div class="profile-interests my-3">
+    <h4>Interests:</h4>
+    <h5><%= @user.interests.join(", ") %></h5>
+  </div>
+  <div class="text-center">
+    <%= link_to "Match" , "#match/new", class: "btn btn-primary"%>
+  </div>
+
+
 </div>
