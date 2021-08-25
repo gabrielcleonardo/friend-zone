@@ -1,17 +1,20 @@
 <div class="container">
   <h1>My search</h1>
 
-  <% @users.each do |user| %>
-  <div class="card mb-2 w-25 h-25" >
-  <img src="https://unsplash.com/photos/9UUoGaaHtNE" class="card-img-top" alt="...">
-    <div class="card-body">
-      <%= user.user_name %><br/>
-      <%= user.email %><br/>
-      <%= user.cpf %><br/>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+
+  <div class="container">
+    <div class="row"  >
+    <% @users.each do |user| %>
+      <div class="card col-6 col-sm-4">
+        <div class="card-body">
+        <%= user.user_name %><br/>
+        <%= user.email %><br/>
+        <%= user.cpf %><br/>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+     <% end %>
     </div>
   </div>
-  <% end %>
-
 
 </div>
