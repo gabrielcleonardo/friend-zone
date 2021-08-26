@@ -13,7 +13,7 @@
     <h5><%= @user.interests.join(", ") %></h5>
   </div>
   <div class="text-center">
-    <%= link_to "Match" , "#match/new", class: "btn btn-primary"%>
+    <%= link_to "Match" , create_path(data: params[:id]), method: :post,  class: "btn btn-primary"%>
   </div>
 
 
