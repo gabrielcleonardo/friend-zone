@@ -12,23 +12,22 @@
 <div class="container align-text-center">
   <div class="cards">
     <% @users.each do |user| %>
-    <div class="card">
-      <% if user.profile_pic.attached? %>
-        <%= cl_image_tag(user.profile_pic.key, width: 200, height: 200, crop: :scale) %>
-      <% else %>
-        <%= cl_image_tag("icons8-avatar-144_cmjsux", width: 200, height: 200, crop: :scale) %>
-      <% end %>
-    <div class="card-body">
-      <div class="user-info">
-        <p><%= user.user_name %></p>
-      </div>
-    <div>
-      <%= link_to "View Me!", user_path(user.id), class: "btn btn-primary" %>
-    </div>
-         </div>
+      <div class="card">
+        <% if user.profile_pic.attached? %>
+          <%= cl_image_tag(user.profile_pic.key, width: 200, height: 200, crop: :scale) %>
+        <% else %>
+          <%= cl_image_tag("icons8-avatar-144_cmjsux", width: 200, height: 200, crop: :scale) %>
+        <% end %>
+        <div class="card-body">
+          <div class="user-info">
+                <p><%= user.user_name %></p>
+          </div>
+          <div>
+            <%= link_to "View Me!", user_path(user.id), class: "btn btn-primary" %>
+          </div>
         </div>
-      <% end %>
+      </div>
+
     <% end %>
   </div>
-
 </div>
