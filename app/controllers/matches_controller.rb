@@ -14,5 +14,11 @@ class MatchesController < ApplicationController
   end
 
   def update
+    @match = Match.find(param[:id])
+    @match.update(status = true)
+  end
+
+  def destroy
+
   end
 end
