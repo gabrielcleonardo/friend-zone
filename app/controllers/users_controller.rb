@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
   def show_map
     # the `geocoded` scope filters only users with coordinates (latitude & longitude)
-    @users = User.all
+    @users = Match.search_by_matches(current_user.id)
     @markers = @users.geocoded.map do |user|
       #unless user.latitude.nil?
         {
