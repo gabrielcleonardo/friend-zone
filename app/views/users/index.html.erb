@@ -12,6 +12,7 @@
 <div class="container align-text-center">
   <div class="cards">
     <% @users.each do |user| %>
+
       <%unless user.id==current_user.id %>
        <div class="card">
          <% if user.profile_pic.attached? %>
@@ -26,10 +27,11 @@
             <div>
               <%= link_to "View Me!", user_path(user.id), class: "btn btn-primary" %>
             </div>
+
           </div>
         </div>
-      <% end %>
+      </div>
+
     <% end %>
   </div>
-
 </div>
