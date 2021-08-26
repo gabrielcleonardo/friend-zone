@@ -2,7 +2,11 @@ class UsersController < ApplicationController
 
 
   def index
-    @users = User.all
+    if params[:query].present?
+      @users = User.search_by_interests(params[:query])
+    else
+      @users = User.search_by_interests(current_user.interests.join(" "))
+    end
 
     # @filter_users = @users.reject do |user|
 
