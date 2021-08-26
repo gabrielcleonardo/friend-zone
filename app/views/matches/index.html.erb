@@ -7,6 +7,11 @@
             <p><%= User.find(match.user_2_id).user_name %></p>
 
           </div>
+          <% if current_user.id == match.user_2_id %>
+          <%= link_to 'comfirm', update_path, class="btn btn-primary" %>
+          <%= link_to 'reject', destroy_path, class="btn btn-primary" %>
+
+          <% end %>
 
          </div>
       </div>
