@@ -75,3 +75,7 @@ gem 'geocoder'
 # cloudinary
 
 gem 'cloudinary', '~> 1.16.0'
+
+# search
+
+gem 'pg_search', '~> 2.3.0'

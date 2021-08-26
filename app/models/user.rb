@@ -3,6 +3,14 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   INTERESTS = ['Soccer', 'Hike', 'Swim', 'Get Drunk', 'Games', 'Climb']
 
+  #search
+  include PgSearch::Model
+  pg_search_scope :search_by_interests,
+    against: [ :interests ],
+    using: {
+      tsearch: { prefix: true, any_word: true } # <-- now `superman batm` will return something!
+    }
+
   validates :name, presence: true
   validates :address, presence: true
   validates :cpf, presence: true, uniqueness: true

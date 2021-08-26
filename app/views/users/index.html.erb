@@ -1,3 +1,13 @@
+<div>
+  <%= form_tag explore_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find interests"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+</div>
 
 <div class="container align-text-center">
   <div class="cards">
@@ -8,17 +18,16 @@
       <% else %>
         <%= cl_image_tag("icons8-avatar-144_cmjsux", width: 200, height: 200, crop: :scale) %>
       <% end %>
-      <div class="card-body">
-        <div class="user-info">
-
-          <p><%= user.user_name %></p>
-        </div>
-        <div>
-          <%= link_to "View Me!", user_path(user.id), class: "btn btn-primary" %>
-        </div>
+    <div class="card-body">
+      <div class="user-info">
+        <p><%= user.user_name %></p>
       </div>
+    <div>
+      <%= link_to "View Me!", user_path(user.id), class: "btn btn-primary" %>
     </div>
-
+         </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
 
