@@ -1,19 +1,31 @@
+<div>
+  <%= form_tag explore_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find interests"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+</div>
 
 <div class="container align-text-center">
   <div class="cards">
     <% @users.each do |user| %>
-    <div class="card">
-      <%= cl_image_tag("wactyaxnwhsrkb9srhkp", crop: :scale) %>
-      <div class="card-body">
-        <div class="user-info">
+      <%unless user.id==current_user.id %>
+        <div class="card">
+          <%= cl_image_tag("wactyaxnwhsrkb9srhkp", crop: :scale) %>
+          <div class="card-body">
+            <div class="user-info">
 
-          <p><%= user.user_name %></p>
+              <p><%= user.user_name %></p>
+            </div>
+            <div>
+              <%= link_to "View Me!", user_path(user.id), class: "btn btn-primary" %>
+            </div>
+          </div>
         </div>
-        <div>
-          <%= link_to "View Me!", user_path(user.id), class: "btn btn-primary" %>
-        </div>
-      </div>
-    </div>
+      <% end %>
     <% end %>
   </div>
 
