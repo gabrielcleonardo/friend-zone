@@ -1,7 +1,11 @@
 <div class="container">
 
   <div class="profile-img p-3 text-center">
-    <img src="https://picsum.photos/640/420" alt="">
+  <% if @user.profile_pic.attached? %>
+    <%= cl_image_tag(@user.profile_pic.key, width: 200, height: 200, crop: :scale) %>
+  <% else %>
+    <%= cl_image_tag("icons8-avatar-144_cmjsux", width: 200, height: 200, crop: :scale) %>
+  <% end %>
   </div>
 
   <div class="profile-info my-3">
