@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+# random profile pic url: https://randomuser.me/api/portraits/men/75.jpg
 
 require 'faker'
 puts "cleaning the database"
