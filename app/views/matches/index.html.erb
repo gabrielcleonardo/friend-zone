@@ -4,19 +4,22 @@
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/640/420)" >
         <div class="card-body">
           <div class="user-info">
-            <p><%= User.find(match.user_2_id).user_name %></p>
-
+            <p><%= User.find(match.user_2_id).user_name ######## problema qnd não fomos nos que pedimos o match, sempre aparece o nosso nome %></p>
           </div>
-          <% if current_user.id == match.user_2_id %>
-          <%= link_to 'comfirm', update_path, class="btn btn-primary" %>
-          <%= link_to 'reject', destroy_path, class="btn btn-primary" %>
-
+          <div>
+          <% if match[:status] == true %>
+              <button type="button" class="btn btn-success">Chat Now!</button>
+          <% elsif match.user_1_id == current_user.id %>
+              <button type="button" class="btn btn-secundary" disabled>Pending...</button>
+          <% else %>
+              <%= link_to 'comfirm', update_path(match.id), method: :patch, class: "btn btn-primary" %>
+              <%= link_to 'reject', destroy_path(match.id), method: :delete, class: "btn btn-primary" %>
           <% end %>
+          </div>
 
-         </div>
+        </div>
       </div>
 
     <% end %>
   </div>
-
 </div>

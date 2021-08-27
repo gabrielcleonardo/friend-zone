@@ -14,11 +14,14 @@ class MatchesController < ApplicationController
   end
 
   def update
-    @match = Match.find(param[:id])
-    @match.update(status = true)
+    @match = Match.find(params[:id])
+    @match.update(status: true)
+    redirect_to my_matches_path
   end
 
   def destroy
-
+    @match = Match.find(params[:id])
+    @match.destroy
+    redirect_to my_matches_path
   end
 end
