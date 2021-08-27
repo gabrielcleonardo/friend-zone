@@ -20,7 +20,9 @@
          <% if user.profile_pic.attached? %>
            <%= cl_image_tag(user.profile_pic.key, width: 200, height: 200, crop: :scale) %>
          <% else %>
-           <%= cl_image_tag("icons8-avatar-144_cmjsux", width: 200, height: 200, crop: :scale) %>
+           <% file = URI.open("https://randomuser.me/api/portraits/#{['women','men'].sample}/#{rand(1..50)}.jpg") %>
+           <% user.profile_pic.attach(io: file, filename: 'profile.png', content_type: 'image/png') %>
+           <%= cl_image_tag(user.profile_pic.key, width: 200, height: 200, crop: :scale) %>
          <% end %>
           <div class="card-body">
             <div class="user-info">

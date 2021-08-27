@@ -8,12 +8,6 @@ class UsersController < ApplicationController
       @users = User.search_by_interests(current_user.interests.join(" "))
     end
 
-
-    # @filter_users = @users.reject do |user|
-
-    #   user.match.status == "denied" || user.match.status == "approved"
-    # end
-
   end
 
   def show
@@ -24,18 +18,25 @@ class UsersController < ApplicationController
     # the `geocoded` scope filters only users with coordinates (latitude & longitude)
     @users = User.search_by_interests(current_user.interests.join(" "))
     @markers = @users.geocoded.map do |user|
-      #unless user.latitude.nil?
+
         {
           lat: user.latitude,
           lng: user.longitude
         }
-      #end
+
 
     end
 
   end
 
+
+
+    # <%= cl_image_tag("icons8-avatar-144_cmjsux", width: 200, height: 200, crop: :scale) %>
+
+
   private
+
+
 
   def set_user
     @user = User.find(params[:id])
