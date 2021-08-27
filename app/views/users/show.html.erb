@@ -18,4 +18,11 @@
     <h5><%= @user.interests.join(", ") %></h5>
   </div>
 
+  <% if current_user.id != @user.id %>
+  <div class="text-center">
+    <%= link_to "Match" , create_path(data: params[:id]), method: :post,  class: "btn btn-primary"%>
+  </div>
+  <% end %>
+
+
 </div>
