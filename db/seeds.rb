@@ -12,6 +12,19 @@ puts "cleaning the database"
 User.destroy_all
 puts "database cleaned"
 puts "seeding database..."
+  user = User.new(
+      name: 'admin',
+      user_name: 'admin_username',
+      cpf: '1234567489',
+      address: 'le wagon, rio de janeiro, brazil',
+      email: 'admin@gmail.com',
+      password: '123456',
+      is_professional: false,
+      is_available: true,
+      interests: User::INTERESTS.sample(rand(1..6))
+    )
+    user.save!
+    puts "#{user.id} - #{user.name} created"
   20.times do
     user = User.new(
       name: Faker::TvShows::SouthPark.character,
