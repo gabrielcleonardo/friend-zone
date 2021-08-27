@@ -8,6 +8,7 @@ class UsersController < ApplicationController
       @users = User.search_by_interests(current_user.interests.join(" "))
     end
 
+
     # @filter_users = @users.reject do |user|
 
     #   user.match.status == "denied" || user.match.status == "approved"
@@ -21,7 +22,7 @@ class UsersController < ApplicationController
 
   def show_map
     # the `geocoded` scope filters only users with coordinates (latitude & longitude)
-    @users = Match.search_by_matches(current_user.id)
+    @users = User.search_by_interests(current_user.interests.join(" "))
     @markers = @users.geocoded.map do |user|
       #unless user.latitude.nil?
         {

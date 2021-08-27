@@ -4,7 +4,7 @@
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/640/420)" >
         <div class="card-body">
           <div class="user-info">
-            <p><%= User.find(match.user_2_id).user_name ######## problema qnd não fomos nos que pedimos o match, sempre aparece o nosso nome %></p>
+            <p><%= User.find(match.user_2_id).user_name %></p>
           </div>
           <div>
           <% if match[:status] == true %>

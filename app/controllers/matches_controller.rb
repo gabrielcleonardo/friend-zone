@@ -3,7 +3,10 @@ class MatchesController < ApplicationController
 
     @matches = Match.search_by_matches(current_user.id)
 
+
   end
+
+
 
   def create
     @user_id_1 = current_user.id
