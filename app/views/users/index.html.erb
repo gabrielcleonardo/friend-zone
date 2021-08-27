@@ -1,15 +1,17 @@
-<div>
+<div class="container align-text-center">
+  <div>
   <%= form_tag explore_path, method: :get do %>
     <%= text_field_tag :query,
       params[:query],
       class: "form-control",
       placeholder: "Find interests"
     %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <%= submit_tag "Search", class: "btn btn-primary my-2" %>
   <% end %>
-</div>
-
-<div class="container align-text-center">
+  </div>
+  <div class="p-3 my-2" style="background-color: #FFD3B4; border-radius:48px; text-align: center">
+  <span>Hey, theres <%= @users.count %> people who shares the same interests as you, go ask em out!</span>
+  </div>
   <div class="cards">
     <% @users.each do |user| %>
 
@@ -27,10 +29,9 @@
             <div>
               <%= link_to "View Me!", user_path(user.id), class: "btn btn-primary" %>
             </div>
-
           </div>
-        </div>
-      </div>
+       </div>
+      <% end %>
 
     <% end %>
   </div>

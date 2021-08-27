@@ -3,7 +3,10 @@ class MatchesController < ApplicationController
 
     @matches = Match.search_by_matches(current_user.id)
 
+
   end
+
+
 
   def create
     @user_id_1 = current_user.id
@@ -14,11 +17,14 @@ class MatchesController < ApplicationController
   end
 
   def update
-    @match = Match.find(param[:id])
-    @match.update(status = true)
+    @match = Match.find(params[:id])
+    @match.update(status: true)
+    redirect_to my_matches_path
   end
 
   def destroy
-
+    @match = Match.find(params[:id])
+    @match.destroy
+    redirect_to my_matches_path
   end
 end
