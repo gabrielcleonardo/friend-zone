@@ -24,6 +24,11 @@
            <% user.profile_pic.attach(io: file, filename: 'profile.png', content_type: 'image/png') %>
            <%= cl_image_tag(user.profile_pic.key, width: 200, height: 200, crop: :scale) %>
          <% end %>
+         <div class="card-interests d-flex justify-content-between p-2" style="list-style: none; background-color: #FFD3B4">
+          <% user.interests.each do |interest| %>
+          <li><%= interest %></li>
+          <% end %>
+         </div>
           <div class="card-body">
             <div class="user-info">
               <p><%= user.user_name %></p>

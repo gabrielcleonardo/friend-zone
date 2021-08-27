@@ -18,14 +18,14 @@ class UsersController < ApplicationController
     # the `geocoded` scope filters only users with coordinates (latitude & longitude)
     @users = User.search_by_interests(current_user.interests.join(" "))
     @markers = @users.geocoded.map do |user|
-
-        {
-          lat: user.latitude,
-          lng: user.longitude
-        }
-
+          {
+            lat: user.latitude,
+            lng: user.longitude,
+            info_window: render_to_string(partial: "info_window", locals: { user: user })
+          }
 
     end
+
 
   end
 
