@@ -1,8 +1,13 @@
 <div class="container align-text-center">
-  <div class="cards">
+  <div class="cards" >
     <% @matches.each do |match| %>
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/640/420)" >
-        <div class="card-body">
+      <div class="card text-center" style="background-color: #dbdbdb; border-radius: 4%">
+        <div>
+          <% if User.find(match.user_2_id).profile_pic.attached? %>
+           <%= cl_image_tag(User.find(match.user_2_id).profile_pic.key, width: 200, height: 200) %>
+          <% end %>
+        </div>
+        <div class="card-body" style="border-radius:8%">
           <div class="user-info">
             <% if current_user.id == match.user_1_id %>
               <p><%= User.find(match.user_2_id).user_name %></p>
